@@ -1,0 +1,15 @@
+.home{
+    background-color: var(--main-color);
+    overflow: hidden;
+
+    .scrollSearchReference{
+        visibility: hidden;
+    }
+
+    .scrollReference{
+        visibility: hidden;
+
+        height: 180px;
+        display: none;
+    }
+}

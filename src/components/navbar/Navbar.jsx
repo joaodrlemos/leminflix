@@ -1,0 +1,84 @@
+import "./navbar.scss";
+import { Search, Notifications, ArrowDropDown } from '@mui/icons-material';
+import { useState, useRef } from "react";
+
+const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
+    const searchInputRef = useRef();
+
+    window.onscroll = () => {
+        setIsScrolled(window.scrollY === 0 ? false : true);
+        return () => (window.onscroll = null);
+    }
+
+    const changeTypeTab = (type) => {
+        setType(type);
+        setCategory({ id: "", name: "" });
+    }
+
+    const openSearchBar = () => {
+        setOpenSearch((p) => !p);
+        setTimeout(() => searchInputRef.current.focus(), 400);
+    }
+
+    const searchData = (e) => {
+        e.preventDefault();
+        setSearch({ searched: false, term: "" });
+        setSearch({ searched: true, term: searchInputRef.current.value });
+        setOpenSearch(false);
+        searchInputRef.current.value = "";
+    }
+
+    return <div className={isScrolled ? "navbar scrolled" : "navbar"}>
+        <div className="container">
+            <div className="left">
+                <img src="https://i.postimg.cc/vTTK3YjK/Leminflix.png" alt="" />
+                <div className="navOptions">
+                    <span onClick={() => { setType(""); setSearch({ searched: false, term: "" }); scrollUp() }}>Homepage</span>
+                    <span onClick={() => { changeTypeTab("movies"); scrollUp() }}>Movies</span>
+                    <span onClick={() => { changeTypeTab("series"); scrollUp() }}>Series</span>
+                    <span>
+                        <a href="/register">REGISTER</a>
+                    </span>
+                    <span>
+                        <a href="/login">LOGIN</a>
+                    </span>
+                </div>
+                <div className="navMenuArrow">
+                    <div className="menu">Menu</div>
+                    <ArrowDropDown className="arrow icon" />
+                    <div className="options">
+                        <span onClick={() => { changeTypeTab("movies"); scrollUp() }}>Movies</span>
+                        <span onClick={() => { changeTypeTab("series"); scrollUp() }}>Series</span>
+                        <span>
+                            <a href="/register">REGISTER</a>
+                        </span>
+                        <span>
+                            <a href="/login">LOGIN</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div className="right">
+                <form className={!openSearch ? "searchBox" : "searchBox clicked"} onSubmit={searchData}>
+                    <input type="text" className="searchInput" ref={searchInputRef} />
+                    <Search className="searchIcon" onClick={openSearchBar} />
+                </form>
+                <Notifications className="notification icon" />
+                <img src="https://i.postimg.cc/qqSdKbwW/avatar2.png" alt="" />
+                <div className="others">
+                    <ArrowDropDown className="arrow icon" />
+                    <div className="options">
+                        <span>Profile</span>
+                        <span>Settings</span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>;
+};
+
+export default Navbar;
+

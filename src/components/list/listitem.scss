@@ -1,0 +1,161 @@
+.listItemShell {
+    width: 225px;
+    height: 120px;
+    margin-right: 5px;
+
+    &:hover {
+        display: block;
+    }
+
+    .listItem {
+        width: 225px;
+        height: 120px;
+        background-color: var(--main-color);
+        margin-right: 5px;
+        overflow: hidden;
+        color: #fff;
+        border-radius: 7px;
+
+        .notHoveredTitle {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            font-size: 22px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            -webkit-text-stroke: 0.7px var(--main-color);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        video {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &:hover {
+            width: 325px;
+            height: 300px;
+            position: absolute;
+            top: -150px;
+            z-index: 3;
+
+            -webkit-box-shadow: 0px -1px 15px 0px rgba(255, 255, 255, 0.07);
+            box-shadow: 0px -1px 15px 0px rgba(255, 255, 255, 0.07);
+
+            img {
+                height: 140px;
+                object-position: center;
+            }
+        }
+
+        .itemInfo {
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 5px;
+
+            .icons {
+                display: flex;
+
+                .icon {
+                    border: 2px solid gray;
+                    padding: 5px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    font-size: 16px;
+                    cursor: pointer;
+
+                    &:hover{
+                        border: 2px solid white;
+                    }
+                }
+
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+
+            .title {
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 5px;
+                color: gray;
+                // max-height: 100px;
+                // overflow: hidden;
+            }
+
+            .aditional-info {
+                // flex: 9;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .desc {
+                    font-size: 13px;
+                    margin: 5px 0px;
+                    max-height: 40px;
+                    overflow: auto;
+                    display: flex;
+                }
+
+                .itemInfoData {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: gray;
+                    margin: 0px 5px;
+
+                    .genre {
+                        font-size: 14px;
+                        color: lightgray;
+                    }
+
+                    .date {
+                        margin-right: 5px;
+                    }
+
+                    .rating {
+                        border-radius: 50%;
+                        padding: 4px 3px;
+                        color: white;
+
+                        &.excelent{
+                            background-color:rgb(17, 209, 0);
+                        }
+
+                        &.good{
+                            background-color:rgb(163, 192, 2);
+                        }
+
+                        &.medium{
+                            background-color:rgb(179, 101, 0);
+                        }
+
+                        &.bad{
+                            background-color:rgb(151, 0, 0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
