@@ -188,6 +188,10 @@
                 span {
                     padding: 10px;
                     cursor: not-allowed;
+                    
+                    &.logout{
+                        cursor: pointer;
+                    }
                 }
 
                 &:hover {

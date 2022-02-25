@@ -1,6 +1,9 @@
 import "./login.scss";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="login">
             <div className="top">
@@ -13,10 +16,10 @@ const Login = () => {
             <div className="container">
                 <form>
                     <h1>Sign In</h1>
-                    <input type="email" placeholder="Email or phone number" />
+                    <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />
-                    <button className="loginButton">Sign In</button>
-                    <span>New to Leminflix? <b>Sign up now.</b></span>
+                    <button className="loginButton" onClick={() => navigate('/home')}>Sign In</button>
+                    <span>New to Leminflix? <b className="signUp" onClick={()=>navigate('/register')}>Register now.</b></span>
                     <small>
                         This page is protected by Google reCAPTCHA to ensure you're not a bot.
                         <b> Learn more</b>.

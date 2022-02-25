@@ -66,6 +66,10 @@
                 &::placeholder{
                     color: lightgray;
                 }
+
+                &:focus{
+                    outline: none;
+                }
             }
 
             button{
@@ -82,11 +86,18 @@
 
             span{
                 color: lightgray;
+                margin: 5px 0px 2px;
 
                 b{
                     color: #fff;
+
+                    &.signUp{
+                        color: rgb(150, 13, 13);
+                        cursor: pointer;
+                    }
                 }
             }
+
         }
     }
 }

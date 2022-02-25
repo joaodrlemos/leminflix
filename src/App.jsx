@@ -12,17 +12,17 @@ const App = () => {
         <div className="app">
           <Routes>
             <Route exact path="/" element={
-                <Home />
-              } />
+              <Login />
+            } />
+            <Route exact path="/home" element={
+              <Home />
+            } />
             <Route exact path="/register" element={
-                <Register />
-              } />
-            <Route exact path="/login" element={
-                <Login />
-              } />
+              <Register />
+            } />
             <Route exact path="/watch" element={
-                <Watch />
-              } />
+              <Watch />
+            } />
           </Routes>
         </div>
       </Router>

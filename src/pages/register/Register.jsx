@@ -1,19 +1,42 @@
 import "./register.scss";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [email, setEmail] = useState("");
+    const [start,setStart] = useState(false);
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
 
+    const validateEmail = (email) => {
+        var re = /\S+@\S+\.\S+/;
+        return (email.length > 0 && re.test(email));
+    }
+
+    const validatePassword = (password) => {
+        return (password.length >= 4);
+    }
+
     const handleStart = () => {
-        setEmail(emailRef.current.value);
+        if(!validateEmail(email) ){
+            alert("Please enter a valid email.");
+            setEmail("");
+        }
+        else{
+            setStart(true);
+        }
     }
 
     const handleFinish = () => {
-        setPassword(passwordRef.current.value);
+        if(!validatePassword(password) ){
+            alert("Password must be at least 4 characters");
+            setPassword("");
+        }
+        else{
+            navigate('/');
+        }
     }
 
     return (
@@ -28,21 +51,21 @@ const Register = () => {
                     </a>
                 </div>
             </div>
-            <div className="container">
+            <div className="container" >
                 <h1>Unlimited movies, TV shows, and more.</h1>
                 <h2>Watch anywhere. Cancel anytime.</h2>
                 <p>
                     Ready to watch? Enter your email to create or restart your membership.
                 </p>
-                {!email ? (
+                {!start ? (
                     <div className="input">
-                        <input type="email" placeholder="email address" ref={emailRef} />
+                        <input type="email" placeholder="email address" ref={emailRef} value={email} onChange={(e)=>setEmail(e.target.value)}/>
                         <button className="registerButton" onClick={handleStart}>Get started</button>
                     </div>
                 ) : (
-                    <form className="input">
-                        <input type="password" placeholder="password" ref={passwordRef} />
-                        <button className="registerButton" onClick={handleStart}>Start</button>
+                    <form className="input" onSubmit={(e)=>e.preventDefault()}>
+                        <input type="password" placeholder="password" ref={passwordRef} value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                        <button className="registerButton" onClick={handleFinish}>Start</button>
                     </form>
                 )}
             </div>

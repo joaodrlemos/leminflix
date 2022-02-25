@@ -1,11 +1,13 @@
 import "./navbar.scss";
 import { Search, Notifications, ArrowDropDown } from '@mui/icons-material';
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
     const searchInputRef = useRef();
+    const navigate = useNavigate();
 
     window.onscroll = () => {
         setIsScrolled(window.scrollY === 0 ? false : true);
@@ -38,12 +40,6 @@ const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
                     <span onClick={() => { setType(""); setSearch({ searched: false, term: "" }); scrollUp() }}>Homepage</span>
                     <span onClick={() => { changeTypeTab("movies"); scrollUp() }}>Movies</span>
                     <span onClick={() => { changeTypeTab("series"); scrollUp() }}>Series</span>
-                    <span>
-                        <a href="/register">REGISTER</a>
-                    </span>
-                    <span>
-                        <a href="/login">LOGIN</a>
-                    </span>
                 </div>
                 <div className="navMenuArrow">
                     <div className="menu">Menu</div>
@@ -51,12 +47,6 @@ const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
                     <div className="options">
                         <span onClick={() => { changeTypeTab("movies"); scrollUp() }}>Movies</span>
                         <span onClick={() => { changeTypeTab("series"); scrollUp() }}>Series</span>
-                        <span>
-                            <a href="/register">REGISTER</a>
-                        </span>
-                        <span>
-                            <a href="/login">LOGIN</a>
-                        </span>
                     </div>
                 </div>
             </div>
@@ -70,9 +60,9 @@ const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
                 <div className="others">
                     <ArrowDropDown className="arrow icon" />
                     <div className="options">
-                        <span>Profile</span>
-                        <span>Settings</span>
-                        <span>Logout</span>
+                        <span className="profile">Profile</span>
+                        <span className="settings">Settings</span>
+                        <span className="logout" onClick={()=>navigate('/')}>Logout</span>
                     </div>
                 </div>
             </div>
