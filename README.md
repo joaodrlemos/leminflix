@@ -2,7 +2,7 @@
 
 
 
-###### A netflix clone app where you can search for movies and Tv shows by category or text.
+###### A netflix clone app where you can search for movie and Tv show info by category or text.
 
 API used: [TheMovieDB](https://www.themoviedb.org/documentation/api)  
 Live Demo: [Demo](https://leminflix.netlify.app)
