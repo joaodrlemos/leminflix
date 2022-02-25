@@ -11,7 +11,7 @@ const MOVIES_BY_GENRE_URL = `https://api.themoviedb.org/3/discover/movie?api_key
 const SEARCH_MOVIE_URL = `https://api.themoviedb.org/3/search/movie?&api_key=` + API_KEY + `&query=`;
 
 const POPULAR_SERIES_URL = `https://api.themoviedb.org/3/discover/tv?api_key=` + API_KEY + `&language=en-US&sort_by=popularity.desc&page=` + Math.ceil(Math.random() * 10) + `&timezone=America%2FNew_York&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`;
-const SERIES_BY_GENRE_URL = `http://api.themoviedb.org/3/discover/tv?api_key=` + API_KEY + `&with_genres=`;
+const SERIES_BY_GENRE_URL = `https://api.themoviedb.org/3/discover/tv?api_key=` + API_KEY + `&with_genres=`;
 const SEARCH_SERIES_URL = `https://api.themoviedb.org/3/search/tv?api_key=` + API_KEY + `&query=`;
 
 
