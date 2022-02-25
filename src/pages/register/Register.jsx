@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [email, setEmail] = useState("");
-    const [start,setStart] = useState(false);
+    const [start, setStart] = useState(false);
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const emailRef = useRef();
@@ -20,21 +20,21 @@ const Register = () => {
     }
 
     const handleStart = () => {
-        if(!validateEmail(email) ){
+        if (!validateEmail(email)) {
             alert("Please enter a valid email.");
             setEmail("");
         }
-        else{
+        else {
             setStart(true);
         }
     }
 
     const handleFinish = () => {
-        if(!validatePassword(password) ){
+        if (!validatePassword(password)) {
             alert("Password must be at least 4 characters");
             setPassword("");
         }
-        else{
+        else {
             navigate('/');
         }
     }
@@ -44,11 +44,9 @@ const Register = () => {
             <div className="top">
                 <div className="wrapper">
                     <img className="logo" src="https://i.postimg.cc/vTTK3YjK/Leminflix.png" alt="" />
-                    <a href="/login">
-                        <button className="loginButton">
-                            Sign in
-                        </button>
-                    </a>
+                    <button className="loginButton" onClick={()=>navigate('/')}>
+                        Sign in
+                    </button>
                 </div>
             </div>
             <div className="container" >
@@ -59,12 +57,12 @@ const Register = () => {
                 </p>
                 {!start ? (
                     <div className="input">
-                        <input type="email" placeholder="email address" ref={emailRef} value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                        <input type="email" placeholder="email address" ref={emailRef} value={email} onChange={(e) => setEmail(e.target.value)} />
                         <button className="registerButton" onClick={handleStart}>Get started</button>
                     </div>
                 ) : (
-                    <form className="input" onSubmit={(e)=>e.preventDefault()}>
-                        <input type="password" placeholder="password" ref={passwordRef} value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                    <form className="input" onSubmit={(e) => e.preventDefault()}>
+                        <input type="password" placeholder="password" ref={passwordRef} value={password} onChange={(e) => setPassword(e.target.value)} />
                         <button className="registerButton" onClick={handleFinish}>Start</button>
                     </form>
                 )}

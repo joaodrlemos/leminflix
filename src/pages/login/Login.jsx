@@ -19,7 +19,7 @@ const Login = () => {
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />
                     <button className="loginButton" onClick={() => navigate('/home')}>Sign In</button>
-                    <span>New to Leminflix? <b className="signUp" onClick={()=>navigate('/register')}>Register now.</b></span>
+                    <span>New to Leminflix? <b className="signUp" onClick={()=>navigate('/register')}>Register now</b></span>
                     <small>
                         This page is protected by Google reCAPTCHA to ensure you're not a bot.
                         <b> Learn more</b>.
