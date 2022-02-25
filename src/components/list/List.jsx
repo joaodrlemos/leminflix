@@ -78,7 +78,7 @@ const List = ({ listTitle, type, categoryId, searchTerm }) => {
                     <ArrowBackIosNewOutlined style={{ display: !isMoved && "none" }} 
                         className="sliderArrow left" onClick={() => handleClick("left")} />
                     <div className="container" ref={listRef}>
-                        {content !== "" && content.map((data, id) => {
+                        {content.map((data, id) => {
                             const { title, overview, name, release_date, vote_average, 
                                     poster_path, backdrop_path, first_air_date } = data;
                             return <ListItem
