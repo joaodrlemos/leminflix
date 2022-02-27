@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [email, setEmail] = useState("");
-    const [start, setStart] = useState(false);
     const [password, setPassword] = useState("");
+    const [start, setStart] = useState(false);
     const navigate = useNavigate();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -35,6 +35,11 @@ const Register = () => {
             setPassword("");
         }
         else {
+            const newUser = {
+                email: email,
+                password: password
+            }
+            localStorage.setItem("user",JSON.stringify(newUser));
             navigate('/');
         }
     }

@@ -1,14 +1,15 @@
 import "./watch.scss";
 import { ArrowBack } from '@mui/icons-material';
+import { useNavigate } from "react-router-dom";
 
 const Watch = () => {
+  const navigation = useNavigate();
+
   return <div className="watch">
-    <a href="/">
-      <div className="back">
+      <div className="back" onClick={()=>navigation('/')}>
         <ArrowBack />
-        Home
+          Home
       </div>
-    </a>
     <video
       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
       className="video"
