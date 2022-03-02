@@ -6,7 +6,7 @@ const Watch = () => {
   const navigation = useNavigate();
 
   return <div className="watch">
-      <div className="back" onClick={()=>navigation('/')}>
+      <div className="back" onClick={()=>navigation('/home')}>
         <ArrowBack />
           Home
       </div>
