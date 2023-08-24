@@ -40,6 +40,7 @@ const Navbar = ({ setType, setCategory, scrollUp, setSearch }) => {
                     <span onClick={() => { setType(""); setSearch({ searched: false, term: "" }); scrollUp() }}>Homepage</span>
                     <span onClick={() => { changeTypeTab("movies"); scrollUp() }}>Movies</span>
                     <span onClick={() => { changeTypeTab("series"); scrollUp() }}>Series</span>
+                    <span className="loginScreenBtn" onClick={()=>navigate('/login')}>LOGIN</span>
                 </div>
                 <div className="navMenuArrow">
                     <div className="menu">Menu</div>

@@ -29,6 +29,14 @@
             display: flex;
             align-items: center;
 
+            .loginScreenBtn {
+                color: red;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.5em;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
             img {
                 max-height: 25px;
                 margin-right: 40px;

@@ -49,7 +49,7 @@ const Register = () => {
             <div className="top">
                 <div className="wrapper">
                     <img className="logo" src="https://i.postimg.cc/vTTK3YjK/Leminflix.png" alt="" />
-                    <button className="loginButton" onClick={()=>navigate('/')}>
+                    <button className="loginButton" onClick={()=>navigate('/login')}>
                         Sign in
                     </button>
                 </div>
